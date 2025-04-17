@@ -8,6 +8,7 @@ return {
     },
     config = function(_, opts)
       require('lsp_signature').setup(opts)
+      vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { bg = '#45475A' })
     end,
   },
 }

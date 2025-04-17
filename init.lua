@@ -668,6 +668,15 @@ require('lazy').setup({
 
       require('mason-lspconfig').setup {
         handlers = {
+          ['clangd'] = function()
+            require('lspconfig').clangd.setup {
+              cmd = {
+                'clangd',
+                '--header-insertion=never',
+              },
+              capabilities = capabilities,
+            }
+          end,
           function(server_name)
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
