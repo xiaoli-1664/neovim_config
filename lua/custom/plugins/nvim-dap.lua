@@ -7,6 +7,9 @@ return {
     {
       'rcarriga/nvim-dap-ui',
       -- Ensure UI plugin is configured AFTER the main DAP plugin
+      dependencies = {
+        'nvim-neotest/nvim-nio',
+      },
       config = function()
         local dapui = require 'dapui'
         dapui.setup {
@@ -48,13 +51,19 @@ return {
         -- Automatically open/close DAP UI when debugging starts/stops
         local dap = require 'dap'
         dap.listeners.after.event_initialized['dapui_config'] = function()
-          dapui.open {}
+          vim.schedule(function()
+            dapui.open {}
+          end)
         end
         dap.listeners.before.event_terminated['dapui_config'] = function()
-          dapui.close {}
+          vim.schedule(function()
+            dapui.close {}
+          end)
         end
         dap.listeners.before.event_exited['dapui_config'] = function()
-          dapui.close {}
+          vim.schedule(function()
+            dapui.close {}
+          end)
         end
       end,
     },
@@ -129,6 +138,8 @@ return {
     vim.fn.sign_define('DapStopped', { text = '▶️', texthl = 'DiagnosticInfo', linehl = 'CursorLine', numhl = 'CursorLine' })
     vim.fn.sign_define('DapBreakpointCondition', { text = '❓', texthl = 'WarningMsg', linehl = '', numhl = '' })
     vim.fn.sign_define('DapLogPoint', { text = '💡', texthl = 'DiagnosticInfo', linehl = '', numhl = '' })
+
+    print 'sign configured successfully!'
   end,
   -- Keymaps for DAP - customize the leader key and specific bindings as needed
   keys = {

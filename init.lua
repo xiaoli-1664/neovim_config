@@ -945,7 +945,7 @@ require('lazy').setup({
   require 'custom.plugins.copliot',
   require 'custom.plugins.nvim-dap',
   require 'custom.plugins.lsp_signature',
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
