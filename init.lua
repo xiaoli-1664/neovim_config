@@ -109,7 +109,6 @@ vim.opt.mouse = 'a'
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
 vim.opt.expandtab = true -- Use spaces instead of tabs
 
 -- Don't show the mode, since it's already in the status line
@@ -960,6 +959,7 @@ require('lazy').setup({
     --  Uncomment any of the lines below to enable them (you will need to restart nvim).
     --
     require 'custom.plugins.copliot',
+    require 'custom.plugins.copilotchat',
     require 'custom.plugins.nvim-dap',
     require 'custom.plugins.lsp_signature',
     -- require 'kickstart.plugins.debug',
