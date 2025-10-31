@@ -84,11 +84,14 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+vim.cmd 'filetype plugin on' -- Enable filetype detection
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.vimtex_quickfix_open_on_warning = 0
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -938,6 +941,7 @@ require('lazy').setup({
                 --  If you are experiencing weird indenting issues, add the language to
                 --  the list of additional_vim_regex_highlighting and disabled languages for indent.
                 additional_vim_regex_highlighting = { 'ruby' },
+                disable = { 'latex' },
             },
             indent = { enable = true, disable = { 'ruby' } },
         },
@@ -962,6 +966,7 @@ require('lazy').setup({
     require 'custom.plugins.copilotchat',
     require 'custom.plugins.nvim-dap',
     require 'custom.plugins.lsp_signature',
+    require 'custom.plugins.vimtex',
     -- require 'kickstart.plugins.debug',
     require 'kickstart.plugins.indent_line',
     require 'kickstart.plugins.lint',
