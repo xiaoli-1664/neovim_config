@@ -7,7 +7,7 @@ return {
         build = 'make tiktoken',
         opts = {
             -- See Configuration section for options
-            model = 'gemini-3-pro-preview',
+            model = 'claude-opus-4.6',
         },
     },
 }
